@@ -1,0 +1,167 @@
+.content {
+    padding: 1.25rem;
+}
+
+/* card group */
+.card-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: flex-start;
+}
+
+/* card */
+.card {
+    max-width: 300px;
+    width: 300px;
+    min-height: 256px;
+    border: 1px solid var(--grey-color);
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+.card a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.card a:hover {
+    text-decoration: underline;
+}
+
+/* card header */
+.card-header {
+    padding: 0.75rem;
+    color: white;
+}
+.card-header > a > * {
+    margin: 0;
+    margin-bottom: 0.25rem;
+}
+
+/* card body */
+.card-body {
+    padding: 0.75rem;
+}
+
+.sp-blue {
+    background-color: #1967d2;
+}
+.sp-green {
+    background-color: #1e8e3e;
+}
+.sp-pink {
+    background-color: #e52592;
+}
+.sp-orange {
+    background-color: #e8710a;
+}
+.sp-cyan {
+    background-color: #129eaf;
+}
+.sp-purple {
+    background-color: #9334e6;
+}
+.sp-lightblue {
+    background-color: #4285f4;
+}
+.sp-grey {
+    background-color: #5f6368;
+}
+
+/* modal */
+.modal {
+    position: fixed;
+    inset: 0;
+    background-color: #00000080;
+    display: grid;
+    place-content: center;
+}
+
+/* modal dialog */
+.modal-dialog {
+    width: 546px;
+    border: 1px solid var(--grey-color);
+
+    padding: 1.25rem;
+    background-color: var(--bg-color);
+    border-radius: 0.5rem;
+}
+
+/* create class modal */
+.create-class-modal > .modal-dialog > form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    position: relative;
+}
+
+.input-group label {
+    color: #363636;
+}
+
+/* input */
+.input {
+    font-size: large;
+    border: none;
+    border-bottom: 2px solid var(--grey-color);
+    transition: all ease-in-out;
+    outline: none;
+}
+
+.input:focus {
+    border-bottom: 2px solid var(--primary-hover);
+}
+
+.error-message {
+    color: red;
+}
+
+.color-selections {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.color-selections > label {
+    position: relative;
+    height: 48px;
+    width: 48px;
+}
+
+.color-selections > label > .sp-preview {
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+}
+
+.color-selections > label > input[type="radio"] {
+    position: absolute;
+    inset: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.color-selections > label > input[type="radio"]:checked::after {
+    content: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"%3E%3Cpath fill="white" d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06a.733.733 0 0 1 1.047 0l3.052 3.093l5.4-6.425a.247.247 0 0 1 .02-.022Z"%2F%3E%3C%2Fsvg%3E');
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all ease-in-out 0.3s;
+}
+
+/* form buttons */
+form .form-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 0.75rem;
+}

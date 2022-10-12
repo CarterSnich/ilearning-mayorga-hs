@@ -1,0 +1,165 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+/* main */
+#main {
+    width: 386px;
+    display: grid;
+    gap: 2.25rem;
+    border: 1px solid var(--grey-color);
+    padding: 1.25rem;
+    margin-top: 5.25rem;
+    margin-bottom: auto;
+    border-radius: 0.25rem;
+}
+
+/* logo wrapper */
+.logo-wrapper {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+}
+
+.logo-wrapper > img {
+    width: 64px;
+    height: 64px;
+}
+
+/* signin wrapper */
+.signin-wrapper {
+    display: flex;
+    flex-flow: column;
+    gap: 0.75rem;
+}
+
+.signin-buttons {
+    display: flex;
+    gap: 1.25rem;
+    flex-flow: column;
+}
+
+.signin-buttons > h2 {
+    text-align: center;
+}
+
+/* button group */
+.button-group {
+    display: flex;
+    border-radius: 0.25rem;
+    border: 1px solid var(--primary-color);
+}
+
+.button-group > button {
+    flex-grow: 1;
+    border: none;
+    color: var(--primary-color);
+    padding: 0.75rem;
+}
+
+.button-group > button.active {
+    color: white;
+    background-color: var(--primary-color);
+}
+
+.button-group > button:active {
+    background-color: var(--primary-active) !important;
+}
+
+.button-group > button:hover {
+    color: white;
+    background-color: var(--primary-hover);
+}
+
+/* login error */
+.login-error {
+    color: red;
+    border: 1px solid red;
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+}
+
+/* signin forms */
+.signin-forms > form {
+    display: grid;
+    gap: 1.25rem;
+    text-align: center;
+}
+
+.signin-forms > form > .input-fields {
+    display: flex;
+    flex-flow: column;
+    gap: 0.75rem;
+}
+
+.signin-forms > form > button[type="submit"] {
+    border-radius: 0.25rem;
+    padding: 0.75rem;
+    border: 1px solid var(--grey-color);
+    transition: all ease-in-out 0.3s;
+}
+
+.signin-forms > form > button[type="submit"]:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-border);
+    color: white;
+}
+
+.signin-forms > form > button[type="submit"]:active {
+    background-color: var(--primary-active);
+}
+
+/* input floating */
+.input-floating {
+    position: relative;
+}
+
+.input-floating input {
+    border: none;
+    outline: none;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    border: 1px solid var(--grey-color);
+    border-radius: 0.25rem;
+    padding-inline: 0.75rem;
+    padding-block: 1.75rem 0.5rem;
+}
+
+.input-floating input:focus {
+    border-color: var(--primary-color);
+}
+
+.input-floating label {
+    position: absolute;
+    font-size: large;
+    top: 50%;
+    left: 0.75rem;
+    transform: translateY(-50%);
+    transition: all ease-in-out 0.3s;
+}
+
+.input-floating input:focus + label,
+.input-floating input:not(:placeholder-shown) + label {
+    transform: translateY(-100%);
+    font-size: small;
+    top: 40%;
+}
+
+/* bottom links */
+.bottom-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0;
+}
+
+.bottom-links a {
+    text-decoration: none;
+    transition: all ease-in-out 0.3s;
+}
+
+.bottom-links a:hover {
+    color: var(--primary-color);
+}

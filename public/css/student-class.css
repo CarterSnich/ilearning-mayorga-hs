@@ -1,0 +1,50 @@
+.content {
+    padding-block: 1.25rem;
+    padding-inline: 16.25rem;
+}
+
+.class-hero {
+    border: 1px solid var(--grey-color);
+    border-radius: 0.25rem;
+    padding: 0.75rem;
+    padding-top: 7.25rem;
+}
+
+.class-hero > * {
+    margin: 0;
+    padding: 0;
+}
+
+.class-hero > h2 {
+    font-size: xx-large;
+}
+
+.class-hero > p {
+    font-size: x-large;
+}
+
+.banner-blue {
+    background-image: var(--banner-blue);
+}
+.banner-green {
+    background-image: var(--banner-green);
+}
+.banner-pink {
+    background-image: var(--banner-pink);
+}
+.banner-orange {
+    background-image: var(--banner-orange);
+}
+.banner-cyan {
+    background-image: var(--banner-cyan);
+}
+.banner-purple {
+    background-image: var(--banner-purple);
+}
+.banner-lightblue {
+    background-image: var(--banner-lightblue);
+}
+.banner-grey {
+    background-image: var(--banner-grey);
+}
+

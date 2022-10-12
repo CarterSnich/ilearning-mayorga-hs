@@ -1,0 +1,83 @@
+/* sidebar wrapper */
+.sidebar-wrapper {
+    position: fixed;
+    inset: 0;
+    background-color: transparent;
+    z-index: 1;
+    transition: all ease-in-out 0.3s;
+    translate: 0 0;
+}
+
+.sidebar-wrapper.collapsed {
+    translate: -100% 0;
+}
+
+/* sidebar */
+.sidebar {
+    width: 365px;
+    background-color: var(--bg-color);
+    height: 100%;
+    overflow-y: auto;
+    transition: all ease-in-out;
+    box-shadow: 0px 0px 8px 0px black;
+}
+
+/* header nav */
+.header-nav {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    border-bottom: 1px solid var(--grey-color);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.75rem;
+    background-color: inherit;
+}
+
+/* header menu */
+.header-menu {
+    padding: 0;
+    display: flex;
+    border: 1px solid var(--grey-color);
+    border-radius: 4px;
+    color: var(--grey-color);
+}
+
+/* header brand */
+.header-brand {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.25rem;
+    padding-inline: 0.75rem;
+    margin-right: auto;
+}
+
+.header-brand > img {
+    height: 24px;
+    width: 24px;
+}
+
+/* add class button */
+.add-class-button {
+    height: auto;
+    display: flex;
+    padding: 0.25rem;
+    border-radius: 1rem;
+    border: none;
+    transition: all ease-in-out 0.3s;
+    margin-inline: 0.75rem;
+}
+.add-class-button:hover {
+    background-color: var(--primary-hover);
+}
+.add-class-button:active {
+    background-color: var(--primary-active);
+}
+
+/* account menu */
+.account-menu {
+}
+
