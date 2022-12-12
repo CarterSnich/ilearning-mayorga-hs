@@ -68,7 +68,7 @@ class TeacherController extends Controller
             'password' => $request->teacher_password
         ];
 
-        if (Auth::guard('teacher')->attempt($credentials)) {
+        if (Auth::guard('teacher')->attempt($credentials, true)) {
             $request->session()->regenerate();
             return
                 redirect()
