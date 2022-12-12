@@ -33,7 +33,7 @@
                 @break
 
                 @default
-                    <pre>Unsupported file. <a href="#">Click here to download.</a></pre>
+                    <pre>Unsupported file. <a href="{{ $file }}" target="_blank">Click here to download.</a></pre>
             @endswitch
         </div>
 
