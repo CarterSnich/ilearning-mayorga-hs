@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Models\ClassActivity;
 use App\Models\EmailSignup;
 use App\Models\Mclass;
 use App\Models\MclassStudent;
@@ -34,7 +34,7 @@ class StudentController extends Controller
         }
 
         $email = $request->email;
-        $token = Str::random(30);
+        $token = random_int(100000, 999999) . "";
 
         // store entry to database
         EmailSignup::create([
@@ -195,10 +195,7 @@ class StudentController extends Controller
             ]);
 
             if ($classStudent) {
-                return
-                    redirect("/student/classes/{$class->id}", [
-                        'class' => $class
-                    ]);
+                return redirect("/student/classes/{$class->id}");
             } else {
                 return
                     redirect()
@@ -244,7 +241,16 @@ class StudentController extends Controller
     public function class(Mclass $mclass)
     {
         return view('student.class', [
-            'class' => $mclass
+            'mclass' => $mclass,
+            'activities' => ClassActivity::where('mclass_id', '=', $mclass->id)->get()
+        ]);
+    }
+
+    public function classActivity(Request $request, Mclass $mclass, ClassActivity $classActivity)
+    {
+        return view('student.view-activity', [
+            'mclass' => $mclass,
+            'classActivity' => $classActivity
         ]);
     }
 }

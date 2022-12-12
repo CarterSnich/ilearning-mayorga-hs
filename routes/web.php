@@ -63,6 +63,9 @@ Route::controller(StudentController::class)->group(function () {
 
     // classes
     Route::get('/student/classes/{mclass}', 'class')->middleware('auth:student');
+
+    // activity
+    Route::get('/student/classes/{mclass}/activity/{classActivity}', 'classActivity')->middleware('auth:student');
 });
 
 // Student request routes
@@ -114,12 +117,15 @@ Route::controller(AdministratorController::class)->group(function () {
 Route::controller(TeacherController::class)->group(function () {
     Route::get('/teacher/classes', 'classes')->middleware('auth:teacher');
     Route::get('/teacher/classes/{mclass}', 'show_class')->middleware('auth:teacher');
+    Route::get('/teacher/classes/{mclass}/activity/create', 'create_activity')->middleware('auth:teacher');
+    Route::get('/teacher/classes/{mclass}/activity/{classActivity}', 'view_activity')->middleware('auth:teacher');
 });
 
 // teacher request routes
 Route::controller(TeacherController::class)->group(function () {
     Route::post('/teacher/login/authenticate', 'authenticate');
     Route::get('/teacher/logout', 'logout')->middleware('auth:teacher');
+    Route::post('/teacher/classes/{mclass}/activity/create/submit', 'submit_activity')->middleware('auth:teacher');
 });
 
 // class requests routes

@@ -20,7 +20,6 @@
 <body>
 
     {{-- side bar --}}
-
     <div class="sidebar-wrapper collapsed">
         <nav class="sidebar">
             <ul>
@@ -78,6 +77,13 @@
     <div class="content">
         @yield('page_content')
     </div>
+
+    {{-- toast --}}
+    @if (request()->has('toast'))
+        <div class="toast">
+            @dd(request()->get('toast'))
+        </div>
+    @endif
 
     {{-- app js --}}
     <script src="{{ asset('js/app.js') }}"></script>

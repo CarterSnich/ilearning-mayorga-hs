@@ -1,0 +1,118 @@
+.class-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.input-label {
+    font-size: large;
+}
+
+#quill-wrapper {
+    border: none;
+    outline: none;
+    height: 400px;
+    max-height: 400px;
+    width: 100%;
+    border: 1px solid var(--grey-color);
+    border-radius: 0.25rem;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#quill-wrapper > * {
+    border: 0;
+}
+
+#quill-editor {
+    flex-grow: 1;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.input-group input:not([type="radio"], [type="checkbox"]) {
+    border: none;
+    outline: none;
+    width: 100%;
+    border: 1px solid var(--grey-color);
+    border-radius: 0.25rem;
+    padding: 0.75rem 1rem;
+    height: 50px;
+}
+
+.input-group input:focus {
+    border-color: var(--primary-color);
+}
+
+.required-indicator {
+    color: red;
+}
+
+.third-row {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0.75rem;
+}
+
+.third-row .input-group:nth-child(1) {
+    flex-grow: 1;
+}
+
+.third-row #score {
+    width: 120px;
+}
+
+.fourth-row {
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+}
+
+.fourth-row > * {
+    flex-grow: 1;
+}
+
+#status-field .radios {
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.last-row {
+    padding: 1.25rem;
+    display: grid;
+    place-content: center;
+}
+
+.last-row button[type="submit"] {
+    padding-block: 0.75rem;
+    width: 200px;
+    border: 1px solid var(--grey-color);
+    border-radius: 0.25rem;
+    transition: all ease-in-out 0.3s;
+}
+
+.last-row button[type="submit"]:active {
+    background-color: var(--primary-active) !important;
+}
+
+.last-row button[type="submit"]:hover {
+    color: white;
+    background-color: var(--primary-hover);
+}

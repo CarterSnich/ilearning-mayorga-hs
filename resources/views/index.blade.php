@@ -137,6 +137,9 @@
             let formTarget = $(this).addClass('active').siblings().removeClass('active').attr('data-form-target')
             $(`form[data-form-for=${formTarget}]`).hide().siblings().fadeIn()
             $('form :input:not([type=hidden])').val('')
+            history.pushState({
+                page: 'another'
+            }, formTarget, `?t=${formTarget === 'student' ? 'teacher': 'student'}`);
         })
     </script>
 

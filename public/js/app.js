@@ -30203,6 +30203,45 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 /***/ }),
 
+/***/ "./resources/css/teacher-class-class.css":
+/*!***********************************************!*\
+  !*** ./resources/css/teacher-class-class.css ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/css/teacher-create-activity.css":
+/*!***************************************************!*\
+  !*** ./resources/css/teacher-create-activity.css ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/css/teacher-view-activity.css":
+/*!*************************************************!*\
+  !*** ./resources/css/teacher-view-activity.css ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/css/student-classes.css":
 /*!*******************************************!*\
   !*** ./resources/css/student-classes.css ***!
@@ -30233,6 +30272,19 @@ __webpack_require__.r(__webpack_exports__);
 /*!******************************************!*\
   !*** ./resources/css/student-layout.css ***!
   \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/css/student-view-activity.css":
+/*!*************************************************!*\
+  !*** ./resources/css/student-view-activity.css ***!
+  \*************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -30642,9 +30694,13 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			"css/index": 0,
 /******/ 			"css/app": 0,
 /******/ 			"css/administrator-layout": 0,
+/******/ 			"css/student-view-activity": 0,
 /******/ 			"css/student-layout": 0,
 /******/ 			"css/student-class": 0,
-/******/ 			"css/student-classes": 0
+/******/ 			"css/student-classes": 0,
+/******/ 			"css/teacher-view-activity": 0,
+/******/ 			"css/teacher-create-activity": 0,
+/******/ 			"css/teacher-class-class": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -30694,16 +30750,20 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/teacher-class","css/teacher-classes","css/teacher-layout","css/index","css/app","css/administrator-layout","css/student-layout","css/student-class","css/student-classes"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/teacher-class","css/teacher-classes","css/teacher-layout","css/index","css/app","css/administrator-layout","css/student-layout","css/student-class","css/student-classes"], () => (__webpack_require__("./resources/css/app.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/teacher-class","css/teacher-classes","css/teacher-layout","css/index","css/app","css/administrator-layout","css/student-layout","css/student-class","css/student-classes"], () => (__webpack_require__("./resources/css/index.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/teacher-class","css/teacher-classes","css/teacher-layout","css/index","css/app","css/administrator-layout","css/student-layout","css/student-class","css/student-classes"], () => (__webpack_require__("./resources/css/teacher-layout.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/teacher-class","css/teacher-classes","css/teacher-layout","css/index","css/app","css/administrator-layout","css/student-layout","css/student-class","css/student-classes"], () => (__webpack_require__("./resources/css/teacher-classes.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/teacher-class","css/teacher-classes","css/teacher-layout","css/index","css/app","css/administrator-layout","css/student-layout","css/student-class","css/student-classes"], () => (__webpack_require__("./resources/css/teacher-class.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/teacher-class","css/teacher-classes","css/teacher-layout","css/index","css/app","css/administrator-layout","css/student-layout","css/student-class","css/student-classes"], () => (__webpack_require__("./resources/css/student-classes.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/teacher-class","css/teacher-classes","css/teacher-layout","css/index","css/app","css/administrator-layout","css/student-layout","css/student-class","css/student-classes"], () => (__webpack_require__("./resources/css/student-class.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/teacher-class","css/teacher-classes","css/teacher-layout","css/index","css/app","css/administrator-layout","css/student-layout","css/student-class","css/student-classes"], () => (__webpack_require__("./resources/css/student-layout.css")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/teacher-class","css/teacher-classes","css/teacher-layout","css/index","css/app","css/administrator-layout","css/student-layout","css/student-class","css/student-classes"], () => (__webpack_require__("./resources/css/administrator-layout.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/teacher-class","css/teacher-classes","css/teacher-layout","css/index","css/app","css/administrator-layout","css/student-view-activity","css/student-layout","css/student-class","css/student-classes","css/teacher-view-activity","css/teacher-create-activity","css/teacher-class-class"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/teacher-class","css/teacher-classes","css/teacher-layout","css/index","css/app","css/administrator-layout","css/student-view-activity","css/student-layout","css/student-class","css/student-classes","css/teacher-view-activity","css/teacher-create-activity","css/teacher-class-class"], () => (__webpack_require__("./resources/css/app.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/teacher-class","css/teacher-classes","css/teacher-layout","css/index","css/app","css/administrator-layout","css/student-view-activity","css/student-layout","css/student-class","css/student-classes","css/teacher-view-activity","css/teacher-create-activity","css/teacher-class-class"], () => (__webpack_require__("./resources/css/index.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/teacher-class","css/teacher-classes","css/teacher-layout","css/index","css/app","css/administrator-layout","css/student-view-activity","css/student-layout","css/student-class","css/student-classes","css/teacher-view-activity","css/teacher-create-activity","css/teacher-class-class"], () => (__webpack_require__("./resources/css/teacher-layout.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/teacher-class","css/teacher-classes","css/teacher-layout","css/index","css/app","css/administrator-layout","css/student-view-activity","css/student-layout","css/student-class","css/student-classes","css/teacher-view-activity","css/teacher-create-activity","css/teacher-class-class"], () => (__webpack_require__("./resources/css/teacher-classes.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/teacher-class","css/teacher-classes","css/teacher-layout","css/index","css/app","css/administrator-layout","css/student-view-activity","css/student-layout","css/student-class","css/student-classes","css/teacher-view-activity","css/teacher-create-activity","css/teacher-class-class"], () => (__webpack_require__("./resources/css/teacher-class.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/teacher-class","css/teacher-classes","css/teacher-layout","css/index","css/app","css/administrator-layout","css/student-view-activity","css/student-layout","css/student-class","css/student-classes","css/teacher-view-activity","css/teacher-create-activity","css/teacher-class-class"], () => (__webpack_require__("./resources/css/teacher-class-class.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/teacher-class","css/teacher-classes","css/teacher-layout","css/index","css/app","css/administrator-layout","css/student-view-activity","css/student-layout","css/student-class","css/student-classes","css/teacher-view-activity","css/teacher-create-activity","css/teacher-class-class"], () => (__webpack_require__("./resources/css/teacher-create-activity.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/teacher-class","css/teacher-classes","css/teacher-layout","css/index","css/app","css/administrator-layout","css/student-view-activity","css/student-layout","css/student-class","css/student-classes","css/teacher-view-activity","css/teacher-create-activity","css/teacher-class-class"], () => (__webpack_require__("./resources/css/teacher-view-activity.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/teacher-class","css/teacher-classes","css/teacher-layout","css/index","css/app","css/administrator-layout","css/student-view-activity","css/student-layout","css/student-class","css/student-classes","css/teacher-view-activity","css/teacher-create-activity","css/teacher-class-class"], () => (__webpack_require__("./resources/css/student-classes.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/teacher-class","css/teacher-classes","css/teacher-layout","css/index","css/app","css/administrator-layout","css/student-view-activity","css/student-layout","css/student-class","css/student-classes","css/teacher-view-activity","css/teacher-create-activity","css/teacher-class-class"], () => (__webpack_require__("./resources/css/student-class.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/teacher-class","css/teacher-classes","css/teacher-layout","css/index","css/app","css/administrator-layout","css/student-view-activity","css/student-layout","css/student-class","css/student-classes","css/teacher-view-activity","css/teacher-create-activity","css/teacher-class-class"], () => (__webpack_require__("./resources/css/student-layout.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/teacher-class","css/teacher-classes","css/teacher-layout","css/index","css/app","css/administrator-layout","css/student-view-activity","css/student-layout","css/student-class","css/student-classes","css/teacher-view-activity","css/teacher-create-activity","css/teacher-class-class"], () => (__webpack_require__("./resources/css/student-view-activity.css")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/teacher-class","css/teacher-classes","css/teacher-layout","css/index","css/app","css/administrator-layout","css/student-view-activity","css/student-layout","css/student-class","css/student-classes","css/teacher-view-activity","css/teacher-create-activity","css/teacher-class-class"], () => (__webpack_require__("./resources/css/administrator-layout.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

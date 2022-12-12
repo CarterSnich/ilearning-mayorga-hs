@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ClassActivity;
 use App\Models\Mclass;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -72,13 +73,14 @@ class TeacherController extends Controller
                 ->intended('/teacher/classes');
         } else {
             return
-                back()
+                redirect('/?t=teacher')
                 ->withErrors([
-                    'teacher_login' => 'Invalid credentials.'
+                    'student_login' => 'Invalid credentials.'
                 ]);
         }
     }
 
+    // logout
     public function logout(Request $request)
     {
         Auth::guard('teacher')->logout();
@@ -92,7 +94,6 @@ class TeacherController extends Controller
      * Pages
      */
 
-
     // classes
     public function classes()
     {
@@ -104,7 +105,93 @@ class TeacherController extends Controller
     public function show_class(Mclass $mclass)
     {
         return view('teacher.class', [
+            'mclass' => $mclass,
+            'classActivities' => ClassActivity::where('mclass_id', '=', $mclass->id)->get()
+        ]);
+    }
+
+    public function create_activity(Mclass $mclass)
+    {
+        return view('teacher.create-activity', [
             'mclass' => $mclass
         ]);
+    }
+
+
+    public function view_activity(Mclass $mclass, ClassActivity $classActivity)
+    {
+        return view('teacher.view-activity', [
+            'mclass' => $mclass,
+            'classActivity' => $classActivity
+        ]);
+    }
+
+
+
+    /*
+     * Routes
+     */
+    public function submit_activity(Request $request, Mclass $mclass)
+    {
+        $formValues = $request->all();
+        $formValues['mclass_id'] = $mclass->id;
+
+        $validator = Validator::make($formValues, [
+            'mclass_id' => ['required', 'exists:mclass,id'],
+            'title' => ['required'],
+            'instructions' => ['nullable', 'json'],
+            'module' => ['nullable', 'file'],
+            'score' => ['required', 'integer'],
+            'deadline' => ['required', 'date'],
+            'status' => ['required', 'boolean']
+        ]);
+
+
+        if ($validator->failed()) {
+            return
+                redirect()
+                ->back()
+                ->withInput()
+                ->withErrors($validator->errors())
+                ->with([
+                    'toast' => [
+                        'type' => 'warning',
+                        'message' => 'Please, check you inputs.'
+                    ]
+                ]);
+        }
+
+        if ($request->file('module')) {
+            if ($request->file('module')->store('activity-modules')) {
+                $formValues['module'] =  $request->file('module')->hashName();
+            } else {
+                return
+                    redirect()
+                    ->back()
+                    ->withInput()
+                    ->with([
+                        'toast' => [
+                            'type' => 'warning',
+                            'message' => 'Failed to upload module.'
+                        ]
+                    ]);
+            }
+        }
+
+        if ($classActivity = ClassActivity::create($formValues)) {
+            return
+                redirect("/teacher/classes/{$mclass->id}/activity/{$classActivity->id}");
+        } else {
+            return
+                redirect()
+                ->back()
+                ->withInput()
+                ->with([
+                    'toast' => [
+                        'type' => 'warning',
+                        'message' => 'Failed to submit activity.'
+                    ]
+                ]);
+        }
     }
 }

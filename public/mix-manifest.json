@@ -6,7 +6,11 @@
     "/css/index.css": "/css/index.css",
     "/css/app.css": "/css/app.css",
     "/css/administrator-layout.css": "/css/administrator-layout.css",
+    "/css/student-view-activity.css": "/css/student-view-activity.css",
     "/css/student-layout.css": "/css/student-layout.css",
     "/css/student-class.css": "/css/student-class.css",
-    "/css/student-classes.css": "/css/student-classes.css"
+    "/css/student-classes.css": "/css/student-classes.css",
+    "/css/teacher-view-activity.css": "/css/teacher-view-activity.css",
+    "/css/teacher-create-activity.css": "/css/teacher-create-activity.css",
+    "/css/teacher-class-class.css": "/css/teacher-class-class.css"
 }

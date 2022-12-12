@@ -1,6 +1,7 @@
 .content {
-    padding-block: 1.25rem;
-    padding-inline: 16.25rem;
+    padding: 1.25rem;
+    margin-inline: auto;
+    width: min(100%, 800px);
 }
 
 .class-hero {
@@ -8,6 +9,11 @@
     border-radius: 0.25rem;
     padding: 0.75rem;
     padding-top: 7.25rem;
+    color: white;
+    position: relative;
+    isolation: isolate;
+    margin-bottom: 0.75rem;
+    background-position: right;
 }
 
 .class-hero > * {
@@ -23,6 +29,20 @@
     font-size: x-large;
 }
 
+.class-hero .backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.4990371148459384) 25%,
+        rgba(255, 255, 255, 0) 100%
+    );
+
+    z-index: -1;
+}
+
+/* banners */
 .banner-blue {
     background-image: var(--banner-blue);
 }
@@ -46,4 +66,8 @@
 }
 .banner-grey {
     background-image: var(--banner-grey);
+}
+
+.bi {
+    display: block;
 }

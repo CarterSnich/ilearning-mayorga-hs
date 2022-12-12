@@ -1,0 +1,93 @@
+.class-content {
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+}
+
+.class-content .left {
+    max-width: 200px;
+}
+
+.class-code {
+    display: block;
+    padding: 0.75rem;
+    border: 1px solid var(--grey-color);
+    border-radius: 4px;
+    width: 100%;
+}
+
+.class-code .code {
+    display: flex;
+    align-items: center;
+}
+
+.class-code code {
+    font-size: 1.25rem;
+}
+
+.class-code-copy {
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"%3E%3Cpath fill="currentColor" d="M9 18q-.825 0-1.412-.587Q7 16.825 7 16V4q0-.825.588-1.413Q8.175 2 9 2h9q.825 0 1.413.587Q20 3.175 20 4v12q0 .825-.587 1.413Q18.825 18 18 18Zm0-2h9V4H9v12Zm-4 6q-.825 0-1.413-.587Q3 20.825 3 20V7q0-.425.288-.713Q3.575 6 4 6t.713.287Q5 6.575 5 7v13h10q.425 0 .713.288q.287.287.287.712t-.287.712Q15.425 22 15 22ZM9 4v12V4Z"%2F%3E%3C%2Fsvg%3E');
+    background-size: 24px;
+    background-position: center;
+    padding: 0.25rem;
+    background-repeat: no-repeat;
+    height: 32px;
+    width: 32px;
+    border: 0;
+    background-color: transparent;
+}
+
+.class-content .right {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-items: stretch;
+    gap: 0.75rem;
+}
+
+.class-content .right > * {
+    border: 1px solid var(--grey-color);
+    border-radius: 4px;
+}
+
+#add-activity {
+    padding: 0.75rem;
+    transition: all ease-in-out 0.3s;
+    color: black;
+}
+
+#add-activity:hover {
+    background-color: var(--primary-hover);
+}
+#add-activity:hover svg {
+    color: white;
+}
+
+#add-activity > * {
+    margin-inline: auto;
+}
+
+.class-activity {
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+    color: inherit;
+}
+
+.class-activity span:nth-child(1) {
+    border-radius: 50%;
+    background-color: green;
+    height: 36px;
+    width: 36px;
+    display: grid;
+    place-content: center;
+}
+
+.class-activity span:nth-child(2) .class-activity-title {
+    font-weight: bold;
+}
+
+.class-activity span:nth-child(2) .class-activity-date {
+    font-size: 0.9rem;
+}
