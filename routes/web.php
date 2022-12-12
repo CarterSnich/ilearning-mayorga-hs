@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\MclassController;
@@ -87,6 +86,12 @@ Route::controller(StudentController::class)->group(function () {
 
     // join class
     Route::post('/student/classes/join', 'join')->middleware('auth:student');
+
+    // submit work
+    Route::post('/student/classes/{_}/activity/{classActivity}/submit', 'submit_work')->middleware('auth:student');
+
+    // unsubmit work
+    Route::post('/student/classes/{_}/activity/{classActivity}/unsubmit', 'unsubmit_work')->middleware('auth:student');
 });
 
 
@@ -126,6 +131,7 @@ Route::controller(TeacherController::class)->group(function () {
     Route::post('/teacher/login/authenticate', 'authenticate');
     Route::get('/teacher/logout', 'logout')->middleware('auth:teacher');
     Route::post('/teacher/classes/{mclass}/activity/create/submit', 'submit_activity')->middleware('auth:teacher');
+    Route::post('/teacher/classes/{_}/activity/{classActivity}/submission/{submission}', 'update_score')->middleware('auth:teacher');
 });
 
 // class requests routes

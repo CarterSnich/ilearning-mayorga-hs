@@ -46,11 +46,28 @@
         @endif
 
         {{-- submissions --}}
-        <div class="submissions"></div>
+        <div id="submissiones-wrapper">
+            <h2>Submissions</h2>
 
+            <div id="submissions">
+                @foreach ($submissions as $sub)
+                    <a href="#" data-target="{{ "#{$sub->id}-{$sub->username}-{$sub->activity_id}" }}">
+                        <h4>{{ $sub->file }}</h4>
+                        <small>
+                            <span>{{ $sub->lastname }}, {{ $sub->firstname }} {{ $m = $sub->middlename ? $m[0] . '.' : '' }}</span>
+                            •
+                            <span>{{ Carbon\Carbon::parse($sub->created_at)->format('F j, Y') }}</span>
+                        </small>
+                    </a>
+                @endforeach
+            </div>
 
-
+        </div>
     </div>
+
+    @foreach ($submissions as $sub)
+        <x-file-modal :sub="$sub" />
+    @endforeach
 @endsection
 
 @section('page_script')
@@ -60,5 +77,17 @@
         let delta = JSON.parse($('#instructions').attr('data-delta'))
         const converter = new QuillDeltaToHtmlConverter(delta.ops, {});
         $('#instructions').html(converter.convert())
+
+        $('#submissions>a').on('click', function(e) {
+            e.preventDefault()
+
+            let dataTarget = $(this).attr('data-target');
+            $(dataTarget).fadeIn(300)
+        })
+
+        $('.file-modal').on('click', function(e) {
+            if (e.target !== this) return;
+            $(this).fadeOut(300)
+        })
     </script>
 @endsection

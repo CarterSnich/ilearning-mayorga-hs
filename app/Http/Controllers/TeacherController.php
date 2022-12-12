@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\ClassActivity;
 use App\Models\Mclass;
+use App\Models\Student;
+use App\Models\Submission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -117,15 +119,29 @@ class TeacherController extends Controller
         ]);
     }
 
-
+    // view activity
     public function view_activity(Mclass $mclass, ClassActivity $classActivity)
     {
+        $submissions =
+            Submission::join('students', 'submissions.student_id', '=', 'students.id')
+            ->join('class_activities', 'submissions.activity_id', '=', 'class_activities.id')
+            ->where('activity_id', '=', $classActivity->id)
+            ->select([
+                'submissions.*',
+                'students.username',
+                'students.lastname',
+                'students.firstname',
+                'students.middlename',
+                'class_activities.score AS max_score'
+            ])
+            ->get();
+
         return view('teacher.view-activity', [
             'mclass' => $mclass,
-            'classActivity' => $classActivity
+            'classActivity' => $classActivity,
+            'submissions' => $submissions
         ]);
     }
-
 
 
     /*
@@ -193,5 +209,15 @@ class TeacherController extends Controller
                     ]
                 ]);
         }
+    }
+
+    // update submission score
+    public function update_score(Request $request, Mclass $_, ClassActivity $classActivity,  Submission $submission)
+    {
+        $submission->score = $request->score;
+        $submission->save();
+
+        return
+            redirect()->intended($request->headers->get('referer'));
     }
 }

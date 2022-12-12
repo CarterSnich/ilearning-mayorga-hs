@@ -178,3 +178,7 @@ a:hover {
 a:active {
     color: var(--primary-active);
 }
+
+.bi {
+    display: block;
+}

@@ -10,6 +10,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Models\StudentRegistration;
+use App\Models\Submission;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -174,7 +175,7 @@ class StudentController extends Controller
         }
     }
 
-
+    // logout
     public function logout(Request $request)
     {
         Auth::guard('student')->logout();
@@ -183,7 +184,7 @@ class StudentController extends Controller
         return redirect('/?t=student');
     }
 
-
+    // join class
     public function join(Request $request)
     {
         $class = Mclass::where('code', '=', $request->code)->first();
@@ -220,6 +221,97 @@ class StudentController extends Controller
         }
     }
 
+    // submit work 
+    public function submit_work(Request $request, Mclass $_, ClassActivity $classActivity)
+    {
+        $formInputs = $request->all();
+        $formInputs['student_id'] = auth('student')->id();
+        $formInputs['activity_id'] = $classActivity->id;
+
+        $validator = Validator::make($formInputs, [
+            'student_id' => ['required', 'exists:students,id'],
+            'activity_id' => ['required', 'exists:class_activities,id'],
+            'file' => ['nullable', 'file'],
+        ]);
+
+        if ($validator->failed()) {
+            return
+                redirect()
+                ->back()
+                ->withErrors($validator->errors())
+                ->with([
+                    'toast' => [
+                        'type' => 'warning',
+                        'message' => 'Please, check your inputs.'
+                    ]
+                ]);
+        }
+
+
+        if ($file = $request->file('file')) {
+            $username = auth('student')->user()->username;
+            $path = "submissions/{$username}/{$classActivity->id}/";
+            $originalFilename = $file->getClientOriginalName();
+
+            if ($file->storeAs($path, $originalFilename)) {
+                $formInputs['file'] = $originalFilename;
+            } else {
+                return
+                    redirect()
+                    ->back()
+                    ->with([
+                        'toast' => [
+                            'type' => 'warning',
+                            'message' => 'Failed to upload file.'
+                        ]
+                    ]);
+            }
+        }
+
+
+        if (Submission::create($formInputs)) {
+            return redirect()->intended(
+                $request->headers->get('referer')
+            );
+        } else {
+            return
+                redirect()
+                ->back()
+                ->with([
+                    'toast' => [
+                        'type' => 'warning',
+                        'message' => 'Failed to upload file.'
+                    ]
+                ]);
+        }
+    }
+
+    public function unsubmit_work(Request $request, Mclass $_, ClassActivity $classActivity)
+    {
+        $submission =
+            Submission::where('student_id', '=', auth('student')->id())
+            ->where('activity_id', '=', $classActivity->id)
+            ->first();
+
+        if ($submission) {
+            if ($submission->delete()) {
+                return
+                    redirect()
+                    ->intended("/student/classes/{$_->id}/activity/{$classActivity->id}");
+            }
+        }
+
+        return
+            redirect()
+            ->back()
+            ->with([
+                'toast' => [
+                    'type' => 'warning',
+                    'message' => 'Failed to unsubmit work.'
+                ]
+            ]);
+    }
+
 
     /*
      | --------------------------------
@@ -248,9 +340,15 @@ class StudentController extends Controller
 
     public function classActivity(Request $request, Mclass $mclass, ClassActivity $classActivity)
     {
+        $submission =
+            Submission::where('student_id', '=', auth('student')->id())
+            ->where('activity_id', '=', $classActivity->id)
+            ->first();
+
         return view('student.view-activity', [
             'mclass' => $mclass,
-            'classActivity' => $classActivity
+            'classActivity' => $classActivity,
+            'submission' => $submission
         ]);
     }
 }
